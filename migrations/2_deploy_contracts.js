@@ -1,8 +1,9 @@
-const ConvertLib = artifacts.require("ConvertLib");
-const MetaCoin = artifacts.require("MetaCoin");
+const PRA = artifacts.require("PRA");
+const StakingRewardLockFactory = artifacts.require("StakingRewardsLockFactory");
 
-module.exports = function(deployer) {
-  deployer.deploy(ConvertLib);
-  deployer.link(ConvertLib, MetaCoin);
-  deployer.deploy(MetaCoin);
+module.exports = function(deployer, network) {
+  console.log(`network is ${network}`)
+  deployer.deploy(PRA).then(function() {
+    return deployer.deploy(StakingRewardLockFactory, PRA.address, 1619982000);
+  });
 };
