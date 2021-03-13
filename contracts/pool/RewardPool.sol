@@ -163,10 +163,10 @@ contract RewardPool is TokenWrapper, IRewardDistributionRecipient {
         }
         rewardToken.transferFrom(msg.sender, address(this), reward);
         // rewardToken.mint(address(this), reward);
-        startTime = block.timestamp;
-        lastUpdateTime = block.timestamp;
         // periodFinish = block.timestamp.add(duration);
-        // lastUpdateTime = startTime;
+        // startTime = block.timestamp;
+        // lastUpdateTime = block.timestamp;
+        lastUpdateTime = startTime;
         periodFinish = startTime.add(duration);
         emit RewardAdded(reward);
     }
