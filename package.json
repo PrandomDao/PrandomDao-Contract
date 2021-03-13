@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/PrandomDao/PrandomDao-Contract#readme",
   "dependencies": {
-    "truffle": "^5.1.65"
+    "truffle": "^5.1.65",
+    "truffle-flattener": "^1.5.0"
   }
 }
